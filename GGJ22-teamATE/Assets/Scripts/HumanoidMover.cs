@@ -5,6 +5,7 @@ public class HumanoidMover : MonoBehaviour
 {
     public CharacterController m_characterController;
     public float m_speed = 3;
+    public float m_jumpHeight = 3;
     
     public Animator m_animator;
     public bool m_facingLeft;
@@ -15,6 +16,7 @@ public class HumanoidMover : MonoBehaviour
 
     public float m_horizInput;
     public float m_vertInput;
+    public float m_jump;
     
     void Update()
     {
@@ -26,14 +28,35 @@ public class HumanoidMover : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    
+    public static float CalculateJumpForce(float gravityStrength, float jumpHeight)
+    {
+        //h = v^2/2g
+        //2gh = v^2
+        //sqrt(2gh) = v
+        return Mathf.Sqrt(2 * gravityStrength * jumpHeight);
+    }
 
     private void Move(float horizontalMove, float verticalMove)
     {
-        if (m_characterController.isGrounded) m_verticalSpeed = 0;
-        else m_verticalSpeed -= m_gravity * Time.deltaTime;
+        if (m_characterController.isGrounded)
+        {
+            if (m_jump > 0)
+            {
+                m_verticalSpeed += CalculateJumpForce(m_gravity, m_jumpHeight);
+            }
+            else
+            {
+                m_verticalSpeed = 0;
+            }
+        }
+        else
+        {
+            m_verticalSpeed -= m_gravity * Time.deltaTime;
+        }
         Vector3 gravityMove = new Vector3(0, m_verticalSpeed, 0);
         
-        Vector3 move = transform.forward * verticalMove + transform.right * horizontalMove;
+        Vector3 move = /*transform.forward * verticalMove +*/ transform.right * horizontalMove;
         m_characterController.Move(m_speed * Time.deltaTime * move + gravityMove * Time.deltaTime);
         
         m_animator.SetBool("Moving", move.sqrMagnitude > 0);

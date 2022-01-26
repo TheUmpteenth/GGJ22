@@ -8,5 +8,6 @@ public class PlayerInputController : MonoBehaviour
     {
         m_mover.m_horizInput = Input.GetAxis("Horizontal");
         m_mover.m_vertInput = Input.GetAxis("Vertical");
+        m_mover.m_jump = Input.GetAxis("Jump");
     }
 }
