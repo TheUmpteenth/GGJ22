@@ -54,6 +54,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\HumanoidMover.cs" />
      <Compile Include="Assets\Scripts\PlayerInputController.cs" />
+     <Compile Include="Assets\Scripts\MultiFocusCamera.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

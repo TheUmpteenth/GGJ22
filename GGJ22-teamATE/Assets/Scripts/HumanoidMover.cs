@@ -56,7 +56,7 @@ public class HumanoidMover : MonoBehaviour
         }
         Vector3 gravityMove = new Vector3(0, m_verticalSpeed, 0);
         
-        Vector3 move = /*transform.forward * verticalMove +*/ transform.right * horizontalMove;
+        Vector3 move = /*transform.forward * verticalMove +*/ transform.forward * horizontalMove;
         m_characterController.Move(m_speed * Time.deltaTime * move + gravityMove * Time.deltaTime);
         
         m_animator.SetBool("Moving", move.sqrMagnitude > 0);

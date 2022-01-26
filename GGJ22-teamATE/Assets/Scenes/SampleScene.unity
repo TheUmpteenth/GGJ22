@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 509836041}
   - component: {fileID: 509836040}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Top Floor - Temporary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 831665227}
   - component: {fileID: 831665226}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Bottom Floor - Temporary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 973239411}
   - component: {fileID: 973239415}
   m_Layer: 0
-  m_Name: Humanoid
+  m_Name: Bottom Human - Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,10 +430,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characterController: {fileID: 973239413}
   m_speed: 3
+  m_jumpHeight: 3
   m_animator: {fileID: 1623460508}
   m_facingLeft: 0
   m_horizInput: 0
   m_vertInput: 0
+  m_jump: 0
 --- !u!136 &973239412
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -511,27 +513,13 @@ GameObject:
   - component: {fileID: 1197178233}
   - component: {fileID: 1197178232}
   - component: {fileID: 1197178231}
-  - component: {fileID: 1197178230}
   m_Layer: 0
-  m_Name: Humanoid (1)
+  m_Name: Top Human - NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1197178230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197178229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5927fb14028744cc8bba4afccf032a94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_mover: {fileID: 1197178231}
 --- !u!114 &1197178231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,11 +533,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_characterController: {fileID: 1197178233}
-  m_speed: 3
+  m_speed: 2
+  m_jumpHeight: 3
   m_animator: {fileID: 1575774427}
   m_facingLeft: 0
-  m_horizInput: 0
+  m_horizInput: 1
   m_vertInput: 0
+  m_jump: 0
 --- !u!136 &1197178232
 CapsuleCollider:
   m_ObjectHideFlags: 0
