@@ -11,5 +11,9 @@ public class GameOverDetector : MonoBehaviour
         {
             Debug.Log("GameOver");
         }
+        else if (other.transform.name.Contains("Win"))
+        {
+            Debug.Log("Nom nom nom (win)");
+        }
     }
 }
