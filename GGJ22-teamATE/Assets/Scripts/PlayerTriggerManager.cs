@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerTriggerManager : MonoBehaviour
 {
@@ -8,17 +9,17 @@ public class PlayerTriggerManager : MonoBehaviour
     {
         if (other.transform.parent.name.Contains("GameOver"))
         {
-            Debug.Log("GameOver");
+            SceneManager.LoadScene("Scenes/GameOverScene");
         }
         else if (other.transform.name.Contains("Win"))
         {
-            Debug.Log("Nom nom nom (win)");
+            SceneManager.LoadScene("Scenes/WinScene");
         }
         else if (other.transform.name.Contains("Sided"))
         {
             var platform = other.transform.GetComponent<OneSidedPlatform>();
             var collider = GetComponent<CharacterController>();
-            platform.Deactivate(collider);
+            platform.DisablePassThrough(collider);
         }
     }
 
@@ -27,7 +28,7 @@ public class PlayerTriggerManager : MonoBehaviour
         if (other.transform.name.Contains("Sided"))
         {
             var platform = other.transform.GetComponent<OneSidedPlatform>();
-            platform.Activate(GetComponent<CharacterController>());
+            platform.EnablePassThrough(GetComponent<CharacterController>());
         }
     }
 }

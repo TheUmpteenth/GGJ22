@@ -6,13 +6,26 @@ public class OneSidedPlatform : MonoBehaviour
 {
     public Collider m_trigger;
     public Collider m_collider;
-    public void Activate(Collider other)
+    public bool m_impassible;
+    
+    public void EnablePassThrough(Collider other)
     {
-        Physics.IgnoreCollision(other, m_collider, false);
+        if (!m_impassible)
+        {
+            Physics.IgnoreCollision(other, m_collider, false);
+        }
     }
 
-    public void Deactivate(Collider other)
+    public void DisablePassThrough(Collider other)
     {
-        Physics.IgnoreCollision(other, m_collider, true);
+        if (!m_impassible)
+        {
+            Physics.IgnoreCollision(other, m_collider, true);
+        }
+    }
+
+    public void MakeImpassible(bool impassible = true)
+    {
+        m_impassible = impassible;
     }
 }
