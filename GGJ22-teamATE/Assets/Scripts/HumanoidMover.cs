@@ -11,7 +11,7 @@ public class HumanoidMover : MonoBehaviour
     public bool m_facingLeft;
     
     // gravity
-    private float m_gravity = 9.87f;
+    public float m_gravity = 9.87f;
     private float m_verticalSpeed;
 
     public float m_horizInput;
