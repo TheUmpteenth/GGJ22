@@ -81,7 +81,7 @@ public class HumanoidMover : MonoBehaviour
         
         if (m_actualSpeed< m_speed)
         {
-            m_actualSpeed += m_acceleration * Time.deltaTime * horizontalMove;
+            m_actualSpeed += m_acceleration * Time.deltaTime * Mathf.Abs(horizontalMove);
             if (m_actualSpeed > m_speed)
                 m_actualSpeed = m_speed;
         }
