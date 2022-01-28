@@ -20,6 +20,16 @@ public class HumanoidMover : MonoBehaviour
     
     void Update()
     {
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+        {
+            m_animator.SetTrigger("walk");
+        }
+        else { m_animator.SetTrigger("stopwalk"); }
+
+
+
+
+
         Move(m_horizInput, m_vertInput);
     }
 
@@ -44,6 +54,7 @@ public class HumanoidMover : MonoBehaviour
             if (m_jump > 0)
             {
                 m_verticalSpeed += CalculateJumpForce(m_gravity, m_jumpHeight);
+                m_animator.SetTrigger("jump");
             }
             else
             {
@@ -58,8 +69,11 @@ public class HumanoidMover : MonoBehaviour
         
         Vector3 move = /*transform.right * verticalMove +*/ transform.forward * horizontalMove;
         m_characterController.Move(m_speed * Time.deltaTime * move * (m_facingLeft ? -1f : 1f) + gravityMove * Time.deltaTime);
-        
+
         m_animator.SetBool("Moving", move.sqrMagnitude > 0);
+        //m_animator.SetBool("Moving", move.sqrMagnitude > 0);
+        //m_animator.SetTrigger("walk");
+
 
         if ((horizontalMove > 0 && m_facingLeft) || (horizontalMove < 0 && !m_facingLeft))
         {
@@ -71,6 +85,11 @@ public class HumanoidMover : MonoBehaviour
                 angles.y -= 360;
             }
             transform.localRotation = Quaternion.Euler(angles);
+
+            //m_animator.SetTrigger("walk");
         }
+        
+
+
     }
 }
