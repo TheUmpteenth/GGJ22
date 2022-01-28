@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: f48e44951847045dc82c7aa15e5ed1c4
+  - enabled: 1
+    path: Assets/Scenes/SampleSceneWithRandomGen.unity
+    guid: 8364c70b98f794a85848d70a9559dec2
   m_configObjects: {}
